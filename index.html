@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080d1c"><meta name="description" content="Sistema del Cazador: misiones, entrenamiento y evolución">
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css">
+<title>Sistema del Cazador</title>
+</head>
+<body>
+<header class="top"><div><div class="eyebrow">SISTEMA ACTIVO</div><h1>CAZADOR <span>SEBAS</span></h1></div><div class="rank" id="rankBadge">RANGO E</div></header>
+<main>
+<section class="hero panel"><div class="hero-copy"><div class="eyebrow">ESTADO DEL JUGADOR</div><h2 id="hunterTitle">El Despertar</h2><p><b id="level">Nivel 1</b> · <span id="rankName">Novato</span></p><div class="xp-line"><div id="xpBar"></div></div><small id="xpText">0 / 300 XP</small></div><div class="sigil">E</div></section>
+<nav class="tabs"><button class="tab active" data-tab="missions">Misiones</button><button class="tab" data-tab="train">Entrenar</button><button class="tab" data-tab="proof">Evidencias</button><button class="tab" data-tab="stats">Estado</button></nav>
+<section id="missions" class="view active">
+<div class="section-head"><div><div class="eyebrow">OBJETIVOS DEL DÍA</div><h2>Misiones activas</h2></div><span class="pill" id="doneCount">0 completadas</span></div>
+<div id="missionList" class="stack"></div>
+<div class="panel challenge"><div class="eyebrow">MISIÓN ESPECIAL</div><h3>Ruptura del límite</h3><p>Completa una misión física y registra tu resultado. La meta es superar tu propio récord, no competir contra otros.</p><button class="primary" id="specialBtn">Revisar progreso</button></div>
+</section>
+<section id="train" class="view">
+<div class="section-head"><div><div class="eyebrow">REGISTRO DE ENTRENAMIENTO</div><h2>Entrenamiento</h2></div></div>
+<div class="panel"><h3>⏱ Cronómetro de misión</h3><div class="timer" id="timer">00:00.0</div><div class="row"><button class="primary" id="startTimer">Iniciar</button><button class="secondary" id="lapTimer">Guardar marca</button><button class="secondary" id="resetTimer">Reiniciar</button></div><p class="muted" id="timerMsg">Inicia antes de comenzar tu reto.</p></div>
+<div class="panel"><h3>🏃 Trote con GPS</h3><div class="metrics"><div><small>Distancia</small><strong id="distance">0.00 km</strong></div><div><small>Tiempo</small><strong id="runTime">00:00</strong></div><div><small>Ritmo</small><strong id="pace">--:-- /km</strong></div></div><div class="row"><button class="primary" id="startRun">Iniciar trote</button><button class="secondary" id="stopRun">Finalizar</button></div><p class="muted" id="gpsMsg">Permite el acceso a ubicación para medir la ruta. GPS requiere conexión segura (HTTPS).</p></div>
+<div class="panel"><h3>💪 Registrar prueba física</h3><label>Prueba<select id="exercise"><option>Flexiones</option><option>Sentadillas</option><option>Plancha (segundos)</option><option>Distancia de trote (km)</option><option>Minutos de movilidad</option></select></label><label>Resultado<input id="resultValue" type="number" min="0" step="any" placeholder="Ej. 12"></label><button class="primary full" id="saveResult">Guardar resultado y ganar XP</button><p class="muted">Usa una técnica segura y una meta adecuada a tu condición.</p></div>
+</section>
+<section id="proof" class="view">
+<div class="section-head"><div><div class="eyebrow">EVIDENCIA PERSONAL</div><h2>Vídeo y movimiento</h2></div></div>
+<div class="panel"><h3>🎥 Grabar o seleccionar vídeo</h3><p>Graba una repetición o selecciona un vídeo de tu galería. El archivo se analiza localmente cuando es compatible; no se sube automáticamente.</p><input id="videoInput" type="file" accept="video/*" capture="environment"><video id="videoPreview" controls playsinline hidden></video><button id="analyzeBtn" class="primary full" disabled>Analizar movimiento</button><div id="analysis" class="analysis muted">Selecciona un vídeo para comenzar.</div><p class="muted tiny">La versión inicial muestra un análisis preliminar de movimiento. No certifica técnica, repeticiones exactas ni seguridad médica. No uses el análisis para combate real.</p></div>
+<div class="panel"><h3>📜 Historial de evidencias</h3><div id="evidenceList" class="stack"><p class="muted">Todavía no hay evidencias guardadas.</p></div></div>
+</section>
+<section id="stats" class="view">
+<div class="section-head"><div><div class="eyebrow">TU EVOLUCIÓN</div><h2>Estado del cazador</h2></div></div>
+<div class="stats-grid"><div class="panel"><small>XP total</small><strong id="totalXP">0</strong></div><div class="panel"><small>Misiones</small><strong id="totalMissions">0</strong></div><div class="panel"><small>Récords</small><strong id="recordCount">0</strong></div><div class="panel"><small>Racha actual</small><strong id="streak">0 días</strong></div></div>
+<div class="panel"><h3>Jerarquía</h3><div id="rankList" class="rank-list"></div></div>
+<div class="panel"><h3>Habilidades desbloqueadas</h3><div id="skills" class="stack"></div></div>
+<div class="panel"><h3>Datos</h3><p class="muted">Tu progreso se guarda en este dispositivo.</p><div class="row"><button class="secondary" id="exportData">Exportar progreso</button><button class="secondary" id="resetData">Borrar progreso</button></div><label>Importar progreso JSON<input id="importData" type="file" accept="application/json"></label></div>
+</section>
+</main>
+<footer>ENTRENA · APRENDE · EVOLUCIONA <small>Ficción y fitness responsable. Descansa si sientes dolor o mareo.</small></footer>
+<script src="app.js"></script>
+</body></html>
